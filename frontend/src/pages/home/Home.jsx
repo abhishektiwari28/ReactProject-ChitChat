@@ -29,7 +29,8 @@ const Home = () => {
   }, [selectedConversation, isMobile])
 
   return (
-    <div className={`flex ${isMobile ? 'h-screen w-full rounded-[2rem] bg-transparent' : 'sm:h-[500px] md:h-[600px] lg:h-[650px] w-full max-w-6xl rounded-3xl'} overflow-hidden shadow-2xl glass-effect`}>
+    <div className={`${isMobile ? 'min-h-screen flex items-center justify-center px-4 py-6' : ''}`}>
+      <div className={`flex ${isMobile ? 'w-full max-w-sm mx-auto rounded-[2rem] bg-transparent' : 'sm:h-[500px] md:h-[600px] lg:h-[650px] w-full max-w-6xl rounded-3xl'} overflow-hidden shadow-2xl glass-effect`}>
         {shouldShowSidebar && (
           <Sidebar 
             onSelectConversation={() => isMobile && setShowSidebar(false)}
@@ -44,6 +45,7 @@ const Home = () => {
             isMobile={isMobile}
           />
         )}
+    </div>
     </div>
   )
 }
